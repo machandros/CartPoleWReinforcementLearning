@@ -154,12 +154,12 @@ if True:
     while episodes<totalEpisodes:
         episodes+=1
         x = round(np.random.uniform(-0.25, 0.25),1)
-        angle = 88*(np.pi/180) 
+        angle = 88*(np.pi/180) # the initial angle, change this and experiment
         omega = 0 
         timeElapsed = 0
         currV = 0
         oldV = 0  
-        for i in range(0,100):
+        for i in range(0,100): # Run until the episode fails, that is, the pole exceeds a certain angle
             fail, timeElapsed = animate(i)
             if fail: 
                 if episodes %100 ==0:
@@ -167,6 +167,8 @@ if True:
                 totalFailTime += timeElapsed
                 failTimes = totalFailTime/episodes
                 break
+                
+'''The following block is to use the learned parameters and use it to actually run and demonstrate the agent's ability to control. Since the same logic is used, comments are not provided'''
 
 if True:
     import numpy as np
